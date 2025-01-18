@@ -7,37 +7,50 @@ class BalanceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
+      child: Container(
         padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue, Colors.blueAccent.shade700],
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Total Balance',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              'Available Balance',
+              style: TextStyle(color: Colors.white, fontSize: 16),
             ),
             const SizedBox(height: 8),
             const Text(
-              '\$12,345.67',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              '\$15,350.75',
+              style: TextStyle(
+                  color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    print('Add Money pressed');
-                  },
-                  child: const Text('Add Money'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('Income',
+                        style: TextStyle(color: Colors.white70, fontSize: 14)),
+                    Text('+ \$5,000',
+                        style: TextStyle(color: Colors.white, fontSize: 18)),
+                  ],
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    print('Withdraw pressed');
-                  },
-                  child: const Text('Withdraw'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('Expenses',
+                        style: TextStyle(color: Colors.white70, fontSize: 14)),
+                    Text('- \$1,200',
+                        style: TextStyle(color: Colors.white, fontSize: 18)),
+                  ],
                 ),
               ],
             ),
